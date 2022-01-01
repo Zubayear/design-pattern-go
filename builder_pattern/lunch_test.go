@@ -5,39 +5,44 @@ import (
 	"testing"
 )
 
-func TestDirector(t *testing.T) {
-	type args struct {
-		lb LunchBuilder
+func TestLunchBuilder_BuildLunch(t *testing.T) {
+	type fields struct {
+		bread      string
+		condiments string
+		dressing   string
+		meat       string
 	}
 	tests := []struct {
-		name string
-		args args
-		want Lunch
+		name   string
+		fields fields
+		want   *Lunch
 	}{
 		{
-			name: "Lunch",
-			args: args{
-				lb: &MyLunch{
-					Lunch: Lunch{
-						Bread:      "Brioch",
-						Condiments: "Mustard",
-						Dressing:   "Mayonnaise",
-						Meat:       "Beef",
-					},
-				},
+			name: "LunchTest",
+			fields: fields{
+				bread:      "Whole Wheat Bread",
+				condiments: "Lettuce",
+				dressing:   "Mayo",
+				meat:       "beef",
 			},
-			want: Lunch{
-				Bread:      "Brioche",
-				Condiments: "Mustard",
-				Dressing:   "Mayonnaise",
-				Meat:       "Beef",
+			want: &Lunch{
+				bread:      "Whole Wheat Bread",
+				condiments: "Lettuce",
+				dressing:   "Mayo",
+				meat:       "beef",
 			},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Director(tt.args.lb); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("Director() = %v, want %v", got, tt.want)
+			lb := &LunchBuilder{
+				bread:      tt.fields.bread,
+				condiments: tt.fields.condiments,
+				dressing:   tt.fields.dressing,
+				meat:       tt.fields.meat,
+			}
+			if got := lb.BuildLunch(); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("LunchBuilder.BuildLunch() = %v, want %v", got, tt.want)
 			}
 		})
 	}

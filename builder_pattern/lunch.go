@@ -1,45 +1,44 @@
 package builder_pattern
 
 type Lunch struct {
-	Bread, Condiments, Dressing, Meat string
+	bread, condiments, dressing, meat string
 }
 
-type LunchBuilder interface {
-	Bread(bread string) LunchBuilder
-	Condiments(condiments string) LunchBuilder
-	Dressing(dressing string) LunchBuilder
-	Meat(meat string) LunchBuilder
-	Build() Lunch
+// Builder will have methods attach to set the fields and return the builder for fluent builder
+// Also, will have build to return the ultimate product
+type LunchBuilder struct {
+	bread, condiments, dressing, meat string
 }
 
-type MyLunch struct {
-	Lunch
+func NewLunchBuilder() *LunchBuilder {
+	return &LunchBuilder{}
 }
 
-func (ml *MyLunch) Bread(bread string) LunchBuilder {
-	ml.Lunch.Bread = bread
-	return ml
+func (lb *LunchBuilder) Bread(bread string) *LunchBuilder {
+	lb.bread = bread
+	return lb
 }
 
-func (ml *MyLunch) Condiments(condiments string) LunchBuilder {
-	ml.Lunch.Condiments = condiments
-	return ml
+func (lb *LunchBuilder) Condiments(condiments string) *LunchBuilder {
+	lb.condiments = condiments
+	return lb
 }
 
-func (ml *MyLunch) Dressing(dressing string) LunchBuilder {
-	ml.Lunch.Dressing = dressing
-	return ml
+func (lb *LunchBuilder) Dressing(dressing string) *LunchBuilder {
+	lb.dressing = dressing
+	return lb
 }
 
-func (ml *MyLunch) Meat(meat string) LunchBuilder {
-	ml.Lunch.Meat = meat
-	return ml
+func (lb *LunchBuilder) Meat(meat string) *LunchBuilder {
+	lb.meat = meat
+	return lb
 }
 
-func (ml *MyLunch) Build() Lunch {
-	return ml.Lunch
-}
-
-func Director(lb LunchBuilder) Lunch {
-	return lb.Build()
+func (lb *LunchBuilder) BuildLunch() *Lunch {
+	return &Lunch{
+		bread:      lb.bread,
+		condiments: lb.condiments,
+		dressing:   lb.dressing,
+		meat:       lb.meat,
+	}
 }
