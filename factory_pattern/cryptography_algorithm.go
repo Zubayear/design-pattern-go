@@ -29,22 +29,25 @@ type SHA512Algorithm struct {
 }
 
 func (s *SHA256Algorithm) GenerateHash(w io.Writer, msg []byte) {
-	h := sha256.New()
-	_, err := h.Write(msg)
-	if err != nil {
-		fmt.Printf("error %q", err)
+	if msg == nil {
+		fmt.Fprintln(w, "error")
+		return
 	}
+	h := sha256.New()
+	h.Write(msg)
+
 	bs := h.Sum(nil)
 	hashStr := fmt.Sprintf("%x", bs)
 	fmt.Fprintln(w, hashStr)
 }
 
 func (s *SHA512Algorithm) GenerateHash(w io.Writer, msg []byte) {
-	h := sha512.New()
-	_, err := h.Write(msg)
-	if err != nil {
-		fmt.Printf("error %q", err)
+	if msg == nil {
+		fmt.Fprintln(w, "error")
+		return
 	}
+	h := sha512.New()
+	h.Write(msg)
 	bs := h.Sum(nil)
 	hashStr := fmt.Sprintf("%x", bs)
 	fmt.Fprintln(w, hashStr)
