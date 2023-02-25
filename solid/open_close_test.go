@@ -106,3 +106,26 @@ func TestDuckTest(t *testing.T) {
 		})
 	}
 }
+
+func TestProcessPayment(t *testing.T) {
+	testCases := []struct {
+		name     string
+		payment  Payment
+		amount   int
+		expected *Transaction
+	}{
+		{"Test Case 1", &PayPal{Username: "test", Password: "test"}, 25_0000, &Transaction{ID: 1, Amount: 25_0000}},
+		{"Test Case 2", &Stripe{APIKey: "test"}, 29_0000, &Transaction{ID: 1, Amount: 29_0000}},
+		{"Test Case 3", &AuthorizeNet{APIKey: "test"}, 35_0000, &Transaction{ID: 1, Amount: 35_0000}},
+		{"Test Case 4", &Braintree{MerchantID: "12345", PublicKey: "abcde", PrivateKey: "fghij"}, 67_0000, &Transaction{ID: 1, Amount: 67_0000}},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			result, _ := ProcessPayment(tc.payment, tc.amount)
+			if !reflect.DeepEqual(result, tc.expected) {
+				t.Errorf("Expected %+v, but got %+v", tc.expected, result)
+			}
+		})
+	}
+}
