@@ -2,10 +2,8 @@
 
 This repository documents the implementation of common **Software Design Patterns** in the Go programming language. Each pattern includes:
 
-- ✅ Problem definition
 - 🛠️ Go implementation
 - 📘 Use cases
-- ⚠️ When **not** to use it
 
 ---
 
