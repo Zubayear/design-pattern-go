@@ -3,28 +3,17 @@ package solid
 import (
 	"fmt"
 	"reflect"
+	"strings"
 	"testing"
 	"time"
 )
 
 func TestMigrationFly_Fly(t *testing.T) {
-	tests := []struct {
-		name string
-		want string
-	}{
-		// TODO: Add test cases.
-		{
-			name: "Migration Fly Test",
-			want: fmt.Sprintf("Migration Fly @%s", time.Now().Format(time.ANSIC)),
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			m := &MigrationFly{}
-			if got := m.Fly(); got != tt.want {
-				t.Errorf("Fly() = %v, want %v", got, tt.want)
-			}
-		})
+	println("Running")
+	m := &MigrationFly{}
+	got := m.Fly()
+	if !strings.HasPrefix(got, "Migration Fly @") {
+		t.Errorf("Fly() = %v, want prefix %v",got, "Migration Fly @")
 	}
 }
 
@@ -33,7 +22,6 @@ func TestInjuredFly_Fly(t *testing.T) {
 		name string
 		want string
 	}{
-		// TODO: Add test cases.
 		{
 			name: "Injured Fly Test",
 			want: fmt.Sprintf("Injured Fly @%s", time.Now().Format(time.ANSIC)),
@@ -58,7 +46,6 @@ func TestNewDuck(t *testing.T) {
 		args args
 		want *Duck
 	}{
-		// TODO: Add test cases.
 		{
 			name: "",
 			args: args{

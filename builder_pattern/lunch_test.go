@@ -19,7 +19,7 @@ func TestDirector(t *testing.T) {
 			args: args{
 				lb: &MyLunch{
 					Lunch: Lunch{
-						Bread:      "Brioch",
+						Bread:      "Brioche",
 						Condiments: "Mustard",
 						Dressing:   "Mayonnaise",
 						Meat:       "Beef",
