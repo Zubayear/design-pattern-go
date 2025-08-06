@@ -1,10 +1,9 @@
+// Package solid demonstrates the Single Responsibility Principle (SRP)
 package solid
 
 // The Single Responsibility Principle (SRP) is a software design principle that
 // states that every module or class in a program should have only one reason
 // to change. This means that a class or module should only be responsible for one thing or behavior.
-
-// Here is an example of implementing the SRP in Go:
 
 // Suppose we have a User struct that represents a user in our application.
 // The User struct has several methods such as Create, Update, and Delete, as well as some helper methods like Validate.

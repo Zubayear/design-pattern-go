@@ -1,4 +1,4 @@
-package builder_pattern
+package builderpattern
 
 type Lunch struct {
 	Bread, Condiments, Dressing, Meat string

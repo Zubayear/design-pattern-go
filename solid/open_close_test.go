@@ -9,7 +9,6 @@ import (
 )
 
 func TestMigrationFly_Fly(t *testing.T) {
-	println("Running")
 	m := &MigrationFly{}
 	got := m.Fly()
 	if !strings.HasPrefix(got, "Migration Fly @") {

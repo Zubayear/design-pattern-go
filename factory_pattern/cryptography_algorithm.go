@@ -1,4 +1,4 @@
-package factory_pattern
+package factorypattern
 
 import (
 	"crypto/sha256"

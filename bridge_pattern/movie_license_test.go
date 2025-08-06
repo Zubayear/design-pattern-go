@@ -1,4 +1,4 @@
-package bridge_pattern
+package bridgepattern
 
 import (
 	"testing"

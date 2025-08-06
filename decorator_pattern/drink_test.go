@@ -1,4 +1,4 @@
-package decorator_pattern
+package decoratorpattern
 
 import (
 	"testing"
