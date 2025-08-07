@@ -51,12 +51,6 @@ These patterns are concerned with communication between objects.
 go test ./...
 ```
 
-To run a specific pattern:
-```bash
-cd behavioral/strategy
-go run main.go
-```
-
 ---
 🧠 Why Learn Design Patterns in Go?
 * Idiomatic Go encourages composition over inheritance.
