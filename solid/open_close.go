@@ -22,12 +22,10 @@ type FlyBehaviour interface {
 	Fly() string
 }
 
-// Duck compose FlyBehaviour so that
-// we can provide implementation
-// so, when new implementation comes then
-// we just extend i.e. implement the interface
-// had we not compose Duck with FlyBehaviour interface
-// then we would need to attach new methods like InjuredDuckFly to Duck
+// Duck compose FlyBehaviour so that we can provide implementation
+// so, when new implementation comes then we just extend i.e. implement the interface
+// had we not compose Duck with FlyBehaviour interface then we would need to attach 
+// new methods like InjuredDuckFly to Duck
 // which violates type open for extension but close for modification
 type Duck struct {
 	FlyBehaviour

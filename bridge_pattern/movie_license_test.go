@@ -13,7 +13,6 @@ func TestGetMovieLicensePrice(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
 		{
 			name: "GetDiscountedPriceTest",
 			args: args{
@@ -65,7 +64,6 @@ func TestPrintMovieLicense(t *testing.T) {
 		name string
 		args args
 	}{
-		// TODO: Add test cases.
 		{
 			name: "PrintMovieLicense",
 			args: args{
