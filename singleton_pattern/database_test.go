@@ -10,7 +10,6 @@ func Test_getDatabaseInstance(t *testing.T) {
 		name string
 		want *datbase
 	}{
-		// TODO: Add test cases.
 		{
 			name: "SingletonTest",
 			want: &datbase{},
@@ -47,7 +46,6 @@ func TestCalculatePrice(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
 		{
 			name: "SingleTonWithDIP",
 			args: args{

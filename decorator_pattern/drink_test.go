@@ -13,7 +13,6 @@ func TestGetName(t *testing.T) {
 		args args
 		want string
 	}{
-		// TODO: Add test cases.
 		{
 			name: "BeverageNameTest",
 			args: args{
@@ -40,7 +39,6 @@ func TestGetCost(t *testing.T) {
 		args args
 		want string
 	}{
-		// TODO: Add test cases.
 		{
 			name: "BeverageCostTest",
 			args: args{

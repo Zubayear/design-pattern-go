@@ -16,7 +16,6 @@ func TestGetEmployee(t *testing.T) {
 		args args
 		want *Employee
 	}{
-		// TODO: Add test cases.
 		{
 			name: "EmployeeFactoryTest",
 			args: args{

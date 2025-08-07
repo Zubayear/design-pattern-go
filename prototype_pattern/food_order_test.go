@@ -21,7 +21,6 @@ func Test_foodOrder_DeepCopy(t *testing.T) {
 		wantId1 string
 		wantId2 string
 	}{
-		// TODO: Add test cases.
 		{
 			name: "DeepCopyTest",
 			fields: fields{
@@ -75,7 +74,6 @@ func Test_foodOrder_ShallowCopy(t *testing.T) {
 		wantId1 string
 		wantId2 string
 	}{
-		// TODO: Add test cases.
 		{
 			name: "ShallowCopyTest",
 			fields: fields{
