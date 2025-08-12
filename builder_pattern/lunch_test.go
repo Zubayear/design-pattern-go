@@ -1,4 +1,4 @@
-package builderpattern 
+package builderpattern
 
 import (
 	"reflect"

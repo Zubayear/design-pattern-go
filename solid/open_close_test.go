@@ -12,7 +12,7 @@ func TestMigrationFly_Fly(t *testing.T) {
 	m := &MigrationFly{}
 	got := m.Fly()
 	if !strings.HasPrefix(got, "Migration Fly @") {
-		t.Errorf("Fly() = %v, want prefix %v",got, "Migration Fly @")
+		t.Errorf("Fly() = %v, want prefix %v", got, "Migration Fly @")
 	}
 }
 
