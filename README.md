@@ -52,12 +52,6 @@ go test ./...
 ```
 
 ---
-🧠 Why Learn Design Patterns in Go?
-* Idiomatic Go encourages composition over inheritance.
-* Design patterns help structure your Go projects for maintainability and clarity.
-* While some OOP patterns may not translate 1-to-1, many are still applicable in Go with a different flavor.
-
----
 📚 Resources Used
 * Head First Design Patterns
 * Design Patterns: Elements of Reusable Object-Oriented Software (Gang of Four)
