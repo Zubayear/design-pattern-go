@@ -53,20 +53,20 @@ type TransactionStore interface {
 
 // ----------- Simple Implementation ---------------
 
-type simpleTokenizer struct {
+type SimpleTokenizer struct {
 }
 
-func (st *simpleTokenizer) Tokenize(ctx context.Context, cardNumber string, expiryMM, expiryYY int, cvv string) (string, error) {
+func (st *SimpleTokenizer) Tokenize(ctx context.Context, cardNumber string, expiryMM, expiryYY int, cvv string) (string, error) {
 	if len(cardNumber) < 12 {
 		return "", errors.New("invalid card number")
 	}
 	return fmt.Sprintf("tok_%x", time.Now().UnixNano()), nil
 }
 
-type simpleFraud struct {
+type SimpleFraud struct {
 }
 
-func (st *simpleFraud) Check(ctx context.Context, req ChargeRequest) (bool, string, error) {
+func (st *SimpleFraud) Check(ctx context.Context, req ChargeRequest) (bool, string, error) {
 	if req.Amount > 10000 {
 		return false, "amount too large", nil
 	}
@@ -76,27 +76,27 @@ func (st *simpleFraud) Check(ctx context.Context, req ChargeRequest) (bool, stri
 	return true, "", nil
 }
 
-type fixedConverter struct {
-	targetCurrency string
-	rate           float64
+type FixedConverter struct {
+	TargetCurrency string
+	Rate           float64
 }
 
-func (f *fixedConverter) Convert(ctx context.Context, amount float64, from, to string) (float64, error) {
+func (f *FixedConverter) Convert(ctx context.Context, amount float64, from, to string) (float64, error) {
 	// For demo: if same currency, no conversion. otherwise use rate.
 	if from == to {
 		return amount, nil
 	}
-	if to != f.targetCurrency {
+	if to != f.TargetCurrency {
 		// Not a real converter — just simple error for unsupported
 		return 0, fmt.Errorf("unsupported conversion to %s", to)
 	}
-	return amount * f.rate, nil
+	return amount * f.Rate, nil
 }
 
-type httpGateway struct {
+type HttpGateway struct {
 }
 
-func (hg *httpGateway) Charge(ctx context.Context, token string, amount float64, currency string, metadata map[string]string) (string, error) {
+func (hg *HttpGateway) Charge(ctx context.Context, token string, amount float64, currency string, metadata map[string]string) (string, error) {
 	select {
 	case <-ctx.Done():
 		return "", ctx.Err()
@@ -105,11 +105,11 @@ func (hg *httpGateway) Charge(ctx context.Context, token string, amount float64,
 	return fmt.Sprintf("prov_%x", time.Now().UnixNano()), nil
 }
 
-type memoryStore struct {
+type MemoryStore struct {
 	records []ChargeResponse
 }
 
-func (m *memoryStore) Save(ctx context.Context, resp ChargeResponse) error {
+func (m *MemoryStore) Save(ctx context.Context, resp ChargeResponse) error {
 	m.records = append(m.records, resp)
 	return nil
 }
