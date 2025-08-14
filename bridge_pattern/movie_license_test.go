@@ -18,8 +18,8 @@ func TestGetMovieLicensePrice(t *testing.T) {
 			args: args{
 				ml: &MovieLicense{
 					Name:        "Insomnia",
-					Discount:    Military, // 4
-					LicenseType: LifeLong, // 90
+					Discount:    Military,
+					LicenseType: LifeLong,
 				},
 			},
 			want: 86,
@@ -29,8 +29,8 @@ func TestGetMovieLicensePrice(t *testing.T) {
 			args: args{
 				ml: &MovieLicense{
 					Name:        "Insomnia",
-					Discount:    Military, // 4
-					LicenseType: Fiveday,  // 10
+					Discount:    Military,
+					LicenseType: Fiveday,
 				},
 			},
 			want: 6,
@@ -40,8 +40,8 @@ func TestGetMovieLicensePrice(t *testing.T) {
 			args: args{
 				ml: &MovieLicense{
 					Name:        "Insomnia",
-					Discount:    Seinor,   // 5
-					LicenseType: LifeLong, // 90
+					Discount:    Seinor,
+					LicenseType: LifeLong,
 				},
 			},
 			want: 85,
