@@ -1,4 +1,7 @@
 # Go Design Patterns
+[![Go Reference](https://pkg.go.dev/badge/github.com/Zubayear/design-pattern-go.svg)](https://pkg.go.dev/github.com/Zubayear/design-pattern-go)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Zubayear/design-pattern-go)](https://goreportcard.com/report/github.com/Zubayear/design-pattern-go)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 This repository documents the implementation of common **Software Design Patterns** in the Go programming language. Each pattern includes:
 
